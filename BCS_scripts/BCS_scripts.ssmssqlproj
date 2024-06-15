@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="BCS_scripts">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="BCSADLNB73:BLUECRYSTAL\Gennadi.Gretchkosiy">
+          <Created>2024-06-11T15:57:04.0792038+09:30</Created>
+          <Type>SQL</Type>
+          <Server>BCSADLNB73</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>False</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="Backup_restore_generate.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Backup_restore_generate.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Backup_restore_progress.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Backup_restore_progress.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Compression_create_Data_Index.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Compression_create_Data_Index.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Compression_table_index.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Compression_table_index.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Configuration_check.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Configuration_check.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Database_users.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Database_users.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Database_users_permissions.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Database_users_permissions.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Databases_shrink_truncateonly.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Databases_shrink_truncateonly.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Databases_size.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Databases_size.sql</FullPath>
+        </FileNode>
+        <FileNode Name="History_backup.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>History_backup.sql</FullPath>
+        </FileNode>
+        <FileNode Name="History_backups_per_day.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>History_backups_per_day.sql</FullPath>
+        </FileNode>
+        <FileNode Name="History_last_backup.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>History_last_backup.sql</FullPath>
+        </FileNode>
+        <FileNode Name="History_restore.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>History_restore.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Indexes_missed.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Indexes_missed.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Indexes_unused.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Indexes_unused.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Indexes_usage.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Indexes_usage.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items>
+        <FileNode Name="BCS SQL script.docx">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>BCS SQL script.docx</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>
