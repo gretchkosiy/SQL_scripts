@@ -154,6 +154,12 @@
           <AssociatedConnUserName />
           <FullPath>History_restore.sql</FullPath>
         </FileNode>
+        <FileNode Name="Index_physical_statistics .sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Index_physical_statistics .sql</FullPath>
+        </FileNode>
         <FileNode Name="Index_rebuild_generate_script.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
@@ -196,11 +202,47 @@
           <AssociatedConnUserName />
           <FullPath>INVALID_objects.sql</FullPath>
         </FileNode>
+        <FileNode Name="Linked_servers.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Linked_servers.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Login_list.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Login_list.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Login_scripting.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Login_scripting.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Mail_parameters.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Mail_parameters.sql</FullPath>
+        </FileNode>
         <FileNode Name="MSDB_size.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>MSDB_size.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Statistics_info.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Statistics_info.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Statistics_last_update.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Statistics_last_update.sql</FullPath>
         </FileNode>
         <FileNode Name="Table_create_script.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>

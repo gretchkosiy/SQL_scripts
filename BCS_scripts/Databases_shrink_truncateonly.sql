@@ -9,8 +9,9 @@ EXEC sp_MSforeachdb 'USE [?];
 	FETCH NEXT FROM files_cursor INTO @partSQL  
 	WHILE @@FETCH_STATUS = 0  
 	BEGIN  
-		--PRINT @partSQL
-		EXEC(@partSQL)
+	    PRINT  ''USE [?]''
+		PRINT @partSQL
+		--EXEC(@partSQL)
  		FETCH NEXT FROM files_cursor INTO @partSQL  
 	END   
 	CLOSE files_cursor;  
