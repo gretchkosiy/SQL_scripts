@@ -1,0 +1,18 @@
+DECLARE @SQLscript VARCHAR(MAX) 
+DECLARE db_cursor CURSOR FOR  
+SELECT 
+	'ALTER INDEX ALL ON [' + TABLE_SCHEMA + '].[' + TABLE_NAME + '] REBUILD WITH ( FILLFACTOR = 90, SORT_IN_TEMPDB = ON, PAD_INDEX = ON)' 
+FROM [INFORMATION_SCHEMA].[TABLES] WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME <> 'sysdiagrams' ORDER BY TABLE_SCHEMA, TABLE_NAME
+
+OPEN db_cursor   
+FETCH NEXT FROM db_cursor INTO @SQLscript   
+WHILE @@FETCH_STATUS = 0   
+BEGIN  
+          PRINT @SQLscript  
+		  PRINT 'GO'
+          --EXEC(@SQLscript) 
+       FETCH NEXT FROM db_cursor INTO @SQLscript   
+END   
+CLOSE db_cursor   
+DEALLOCATE db_cursor
+

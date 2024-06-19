@@ -34,6 +34,12 @@
           <AssociatedConnUserName />
           <FullPath>Backup_restore_progress.sql</FullPath>
         </FileNode>
+        <FileNode Name="CDC_tables_list.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>CDC_tables_list.sql</FullPath>
+        </FileNode>
         <FileNode Name="Compression_create_Data_Index.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
@@ -51,6 +57,42 @@
           <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>Configuration_check.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Database_grow_events.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Database_grow_events.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Database_mirroring_failback_scheduled.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Database_mirroring_failback_scheduled.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Database_mirroring_failover_emergency.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Database_mirroring_failover_emergency.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Database_mirroring_failover_scheduled.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Database_mirroring_failover_scheduled.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Database_mirroring_help_script.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Database_mirroring_help_script.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Database_mirroring_setup.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Database_mirroring_setup.sql</FullPath>
         </FileNode>
         <FileNode Name="Database_users.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
@@ -75,6 +117,12 @@
           <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>Databases_size.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Detach_Attach_database.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Detach_Attach_database.sql</FullPath>
         </FileNode>
         <FileNode Name="Execution_plans_counts.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
@@ -106,11 +154,29 @@
           <AssociatedConnUserName />
           <FullPath>History_restore.sql</FullPath>
         </FileNode>
+        <FileNode Name="Index_rebuild_generate_script.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Index_rebuild_generate_script.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Indexes_fragmentation.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Indexes_fragmentation.sql</FullPath>
+        </FileNode>
         <FileNode Name="Indexes_missed.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>Indexes_missed.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Indexes_structure.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Indexes_structure.sql</FullPath>
         </FileNode>
         <FileNode Name="Indexes_unused.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
