@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="SQL_installation">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items />
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="Configuration_check.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Configuration_check.sql</FullPath>
+        </FileNode>
+        <FileNode Name="HELPER_2016_DatabaseMail.exe.config.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>HELPER_2016_DatabaseMail.exe.config.sql</FullPath>
+        </FileNode>
+        <FileNode Name="HELPER_Mail_create_delete_test.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>HELPER_Mail_create_delete_test.sql</FullPath>
+        </FileNode>
+        <FileNode Name="HELPER_TempDB_CPU_Configuration.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>HELPER_TempDB_CPU_Configuration.sql</FullPath>
+        </FileNode>
+        <FileNode Name="INSTALLER_01_OLA_BCS_standard.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>INSTALLER_01_OLA_BCS_standard.sql</FullPath>
+        </FileNode>
+        <FileNode Name="INSTALLER_02_Set_Parameters_BCS_standard.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>INSTALLER_02_Set_Parameters_BCS_standard.sql</FullPath>
+        </FileNode>
+        <FileNode Name="INSTALLER_03_SSIS_SPs.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>INSTALLER_03_SSIS_SPs.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>
