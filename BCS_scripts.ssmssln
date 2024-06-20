@@ -9,15 +9,18 @@ Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "SQL_installation", "SQL_ins
 EndProject
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "Health_Check", "Health_Check\Health_Check.ssmssqlproj", "{B521FCBD-E1CC-4354-A989-CAEA386D8367}"
 EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "AZURE", "AZURE\AZURE.ssmssqlproj", "{8E040905-FFCF-426A-9869-981C2D232B5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Default|Default = Default|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{931642EF-F98A-4AA1-A855-987D26F0DCF0}.Default|Default.ActiveCfg = Default
-		{5D9D86C4-75CC-4281-8931-5E8089816FBC}.Default|Default.ActiveCfg = Default
 		{4CB65E1A-9282-4E3F-A040-246B844FC9F0}.Default|Default.ActiveCfg = Default
 		{B521FCBD-E1CC-4354-A989-CAEA386D8367}.Default|Default.ActiveCfg = Default
+		{223B106C-128E-46CC-BF2D-86E4D1B0F478}.Default|Default.ActiveCfg = Default
+		{8E040905-FFCF-426A-9869-981C2D232B5C}.Default|Default.ActiveCfg = Default
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

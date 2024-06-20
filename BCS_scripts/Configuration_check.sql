@@ -3,7 +3,14 @@
    declare @smaxmem int
    declare @osmaxmm int
    declare @osavlmm int 
- 
+
+declare @installationSQL datetime 
+
+SELECT 
+	@installationSQL = create_date 
+FROM sys.server_principals
+WHERE sid = 0x010100000000000512000000
+
    -- SQL memory
    SELECT 
       @strtSQL = sqlserver_start_time,
@@ -459,6 +466,7 @@ SELECT
 --SERVERPROPERTY('ServerName') as ServerName,
        SERVERPROPERTY('MachineName') AS HostName,
        ISNULL(SERVERPROPERTY('InstanceName'),'defailt') as InstanceName,
+	   @installationSQL AS [Installation date],
 	   @strtSQL AS [Start time],
 
 	   @StartUp AS StartUpFlags,
