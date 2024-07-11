@@ -1,8 +1,8 @@
 SELECT database_name, type, backup_finish_date INTO #T1 FROM msdb.dbo.backupset WITH (NOLOCK)
 
-CREATE NONCLUSTERED INDEX [<Name of Missing Index, sysname,>]
-ON [dbo].[#T1] ([type])
-INCLUDE ([database_name],[backup_finish_date])
+CREATE NONCLUSTERED INDEX [AAA]
+ON [dbo].[#T1] ([database_name],[type])
+INCLUDE ([backup_finish_date])
 
 SELECT 
 	t1.name, 

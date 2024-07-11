@@ -9,11 +9,11 @@
     </LogicalFolder>
     <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
       <Items>
-        <FileNode Name="Health_check_41.zip">
+        <FileNode Name="HC_41.zip">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>Health_check_41.zip</FullPath>
+          <FullPath>HC_41.zip</FullPath>
         </FileNode>
         <FileNode Name="SQL Server Process.docx">
           <AssociatedConnectionMoniker />

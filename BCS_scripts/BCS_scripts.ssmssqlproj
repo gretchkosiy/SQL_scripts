@@ -29,8 +29,8 @@
           <FullPath>AAG_structure.sql</FullPath>
         </FileNode>
         <FileNode Name="Backup_restore_generate.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>Backup_restore_generate.sql</FullPath>
         </FileNode>

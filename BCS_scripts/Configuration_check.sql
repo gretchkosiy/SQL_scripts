@@ -27,7 +27,7 @@ WHERE sid = 0x010100000000000512000000
 
 declare @Instant_file_initialization VARCHAR(MAX)
 SELECT  
-        @instant_file_initialization = CASE WHEN instant_file_initialization_enabled = 'Y' THEN 'Yes'ELSE 'No' END
+        @Instant_file_initialization = CASE WHEN instant_file_initialization_enabled = 'Y' THEN 'Yes'ELSE 'No' END
 FROM    sys.dm_server_services
 WHERE   servicename LIKE 'SQL Server (%'
 
@@ -469,7 +469,7 @@ SELECT
 	   @installationSQL AS [Installation date],
 	   @strtSQL AS [Start time],
 
-	   @StartUp AS StartUpFlags,
+	   CASE WHEN LEN (@StartUp) <> 0 THEN  '="' + @StartUp + '"' ELSE '' END AS StartUpFlags,
 	   @Instant_file_initialization AS [InstantFileInitialisation],
 	   @Lock_pages_in_memory AS [LockPagesInMemory],
 	   @DAC AS DAC,
@@ -517,7 +517,7 @@ CASE
                 ELSE SUBSTRING(@SharedDriveNames,2,len(@SharedDriveNames)-1)
 END
 
-AS ListSharedDrives,
+AS SharedDrivesOnCluster,
 (select size/128 from msdb.sys.master_files where name = 'MSDBData') DataFileSizeMB,
 CAST(CAST(FILEPROPERTY('MSDBdata', 'SpaceUsed') AS int)/128 AS varchar) as MSDB_used,
 @SystemDatabases AS MASTER_file_location,

@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="PowerShell">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="BCSADLNB73:BLUECRYSTAL\Gennadi.Gretchkosiy">
+          <Created>2024-06-26T15:58:59.7188768+09:30</Created>
+          <Type>SQL</Type>
+          <Server>BCSADLNB73</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB>AdventureWorks2016</InitialDB>
+          <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>False</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="PowerShell_Features_installed_on_host.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>PowerShell_Features_installed_on_host.sql</FullPath>
+        </FileNode>
+        <FileNode Name="PowerShell_SQL_credentials.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>PowerShell_SQL_credentials.sql</FullPath>
+        </FileNode>
+        <FileNode Name="PowerShell_SQL_Updates_installed.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>PowerShell_SQL_Updates_installed.sql</FullPath>
+        </FileNode>
+        <FileNode Name="PowerShell_SQL-UN_installation_path.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>PowerShell_SQL-UN_installation_path.sql</FullPath>
+        </FileNode>
+        <FileNode Name="PoweShell_Linked_servers_passwords.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>PoweShell_Linked_servers_passwords.sql</FullPath>
+        </FileNode>
+        <FileNode Name="PoweShell_Run_TSQLs_with_reports.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>PoweShell_Run_TSQLs_with_reports.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>
