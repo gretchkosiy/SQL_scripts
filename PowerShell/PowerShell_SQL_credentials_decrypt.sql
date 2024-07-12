@@ -80,19 +80,14 @@ function Get-MSSQLCredentialPasswords{
  
 
     # Start DAC connection to SQL Server 
-
     # Default instance MSSQLSERVER -> instance name cannot be used in connection string 
 
     if ($InstanceName -eq "MSSQLSERVER") { 
-
       $ConnString = "Server=ADMIN:$ComputerName\;Trusted_Connection=True" 
-
     } 
 
     else { 
-
       $ConnString = "Server=ADMIN:$ComputerName\$InstanceName;Trusted_Connection=True" 
-
     } 
 
     $Conn = New-Object System.Data.SqlClient.SQLConnection($ConnString); 
