@@ -7,14 +7,11 @@ function Get-MSSQLCredentialPasswords{
 .SYNOPSIS 
 
   Extract and decrypt MSSQL Credentials passwords. 
-
    
 
   Author: Antti Rantasaari 2014, NetSPI 
-
-      License: BSD 3-Clause 
-
-   
+ License: BSD 3-Clause 
+ 
 
 .DESCRIPTION 
 
@@ -64,10 +61,7 @@ function Get-MSSQLCredentialPasswords{
   #> 
 
   Add-Type -assembly System.Security 
-
   Add-Type -assembly System.Core 
-
-  
 
   # Set local computername and get all SQL Server instances 
 
@@ -75,23 +69,15 @@ function Get-MSSQLCredentialPasswords{
 
   $SqlInstances = (Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server' -Name InstalledInstances).InstalledInstances 
 
-   
-
   $Results = New-Object "System.Data.DataTable" 
-
   $Results.Columns.Add("Instance") | Out-Null 
-
   $Results.Columns.Add("Credential") | Out-Null 
-
   $Results.Columns.Add("User") | Out-Null 
-
   $Results.Columns.Add("Password") | Out-Null 
-
-   
+  
 
   foreach ($InstanceName in $SqlInstances) { 
-
-   
+ 
 
     # Start DAC connection to SQL Server 
 
