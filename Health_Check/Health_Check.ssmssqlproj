@@ -9,17 +9,17 @@
     </LogicalFolder>
     <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
       <Items>
-        <FileNode Name="HC_41.zip">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>HC_41.zip</FullPath>
-        </FileNode>
         <FileNode Name="SQL Server Process.docx">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>SQL Server Process.docx</FullPath>
+        </FileNode>
+        <FileNode Name="Version 4.zip">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Version 4.zip</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>
