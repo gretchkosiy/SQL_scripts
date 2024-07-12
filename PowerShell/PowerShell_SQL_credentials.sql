@@ -2,9 +2,6 @@ https://github.com/NetSPI/Powershell-Modules/blob/master/Get-MSSQLCredentialPass
 
  
 function Get-MSSQLCredentialPasswords{ 
-
-   
-
   <#  
 
 .SYNOPSIS 
@@ -46,14 +43,9 @@ function Get-MSSQLCredentialPasswords{
       --------   ---------- ----  -------- 
 
       SQLEXPRESS test       test  test 
-
       SQLEXPRESS user1      user1 Passw0rd01! 
-
       SQL2012    user2      user2 Passw0rd01! 
-
       SQL2012    VAULT      user3 !@#Sup3rS3cr3tP4$$w0rd!!$$ 
-
-   
 
 .NOTES   
 
