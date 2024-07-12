@@ -1,3 +1,5 @@
+  -- Last update 12/07/2024
+    
   declare @strtSQL datetime
    declare @currmem int
    declare @smaxmem int
@@ -460,7 +462,7 @@ DECLARE @FileList AS TABLE (
 ------------------------------------------------------------------------------------
 
 USE msdb
-
+     
 SELECT
 
 --SERVERPROPERTY('ServerName') as ServerName,
