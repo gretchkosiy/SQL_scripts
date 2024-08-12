@@ -12,6 +12,12 @@
           <AssociatedConnUserName />
           <FullPath>Blocking.sql</FullPath>
         </FileNode>
+        <FileNode Name="DatabaseSize.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>DatabaseSize.sql</FullPath>
+        </FileNode>
         <FileNode Name="Users.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />

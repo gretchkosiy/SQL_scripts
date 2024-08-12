@@ -3,7 +3,7 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="BCSADLNB73:PC-GENA\Administrator">
+        <ConnectionNode Name="BCSADLNB73:BLUECRYSTAL\Gennadi.Gretchkosiy">
           <Created>2024-06-26T15:58:59.7188768+09:30</Created>
           <Type>SQL</Type>
           <Server>BCSADLNB73</Server>
@@ -35,8 +35,8 @@
           <FullPath>PowerShell_SQL_credentials_decrypt.sql</FullPath>
         </FileNode>
         <FileNode Name="PowerShell_SQL_Updates_installed.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>PowerShell_SQL_Updates_installed.sql</FullPath>
         </FileNode>

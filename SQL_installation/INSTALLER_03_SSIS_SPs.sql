@@ -353,7 +353,7 @@ BEGIN
 	FROM [SSISDB].[internal].[executions] execs
 		INNER JOIN [SSISDB].[internal].[operations] opers ON execs.[execution_id]= opers.[operation_id]
 		LEFT JOIN [SSISDB].[internal].[operation_messages] OM ON OM.operation_id = opers.operation_id
-		LEFT JOIN (
+		RIGHT JOIN (
 						SELECT 
 							J.NAME + ' (Step ' + CAST(JS.step_id AS VARCHAR(3)) + ')' [Job/Step]
 							,CASE 
