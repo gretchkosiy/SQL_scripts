@@ -2,7 +2,23 @@
 <SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="SQL_installation">
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
-      <Items />
+      <Items>
+        <ConnectionNode Name="BCSADLNB73\SQL2222:BLUECRYSTAL\Gennadi.Gretchkosiy">
+          <Created>2024-09-12T10:19:41.5930357+09:30</Created>
+          <Type>SQL</Type>
+          <Server>BCSADLNB73\SQL2222</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>False</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
@@ -31,20 +47,20 @@
           <FullPath>HELPER_TempDB_CPU_Configuration.sql</FullPath>
         </FileNode>
         <FileNode Name="INSTALLER_01_OLA_BCS_standard.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73\SQL2222:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73\SQL2222</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>INSTALLER_01_OLA_BCS_standard.sql</FullPath>
         </FileNode>
         <FileNode Name="INSTALLER_02_Set_Parameters_BCS_standard.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73\SQL2222:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73\SQL2222</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>INSTALLER_02_Set_Parameters_BCS_standard.sql</FullPath>
         </FileNode>
         <FileNode Name="INSTALLER_03_SSIS_SPs.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73\SQL2222:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73\SQL2222</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>INSTALLER_03_SSIS_SPs.sql</FullPath>
         </FileNode>

@@ -2,7 +2,38 @@
 <SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="AZURE">
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
-      <Items />
+      <Items>
+        <ConnectionNode Name="CQL-DEV.DATABASE.WINDOWS.NET:Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au">
+          <Created>2024-11-01T12:48:25.6390191+10:30</Created>
+          <Type>SQL</Type>
+          <Server>CQL-DEV.DATABASE.WINDOWS.NET</Server>
+          <UserName>Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</UserName>
+          <Authentication>SQL</Authentication>
+          <InitialDB>RETAIL</InitialDB>
+          <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="cql-prd.database.windows.net:Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au">
+          <Created>2024-10-29T13:45:14.9701028+10:30</Created>
+          <Type>SQL</Type>
+          <Server>cql-prd.database.windows.net</Server>
+          <UserName>Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</UserName>
+          <Authentication>SQL</Authentication>
+          <InitialDB>RETAIL</InitialDB>
+          <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>False</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
@@ -13,15 +44,27 @@
           <FullPath>Blocking.sql</FullPath>
         </FileNode>
         <FileNode Name="DatabaseSize.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:cql-prd.database.windows.net:False:Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>cql-prd.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnUserName>
           <FullPath>DatabaseSize.sql</FullPath>
         </FileNode>
+        <FileNode Name="Error_log.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:cql-prd.database.windows.net:False:Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>cql-prd.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnUserName>
+          <FullPath>Error_log.sql</FullPath>
+        </FileNode>
+        <FileNode Name="User_permissions.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:cql-prd.database.windows.net:False:Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>cql-prd.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnUserName>
+          <FullPath>User_permissions.sql</FullPath>
+        </FileNode>
         <FileNode Name="Users.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CQL-DEV.DATABASE.WINDOWS.NET:False:Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CQL-DEV.DATABASE.WINDOWS.NET</AssociatedConnSrvName>
+          <AssociatedConnUserName>Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnUserName>
           <FullPath>Users.sql</FullPath>
         </FileNode>
       </Items>

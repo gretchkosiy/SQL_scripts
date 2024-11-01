@@ -87,7 +87,7 @@ WHERE ((i.indid BETWEEN 1 AND 254) OR i.name IS NULL)
 	and o.name not like 'filetable_updates_%'
 	and o.name not like 'sqlagent_%'
 	and o.xtype = 'U'
-	--and o.name = 'Pers_Rest'
+	and o.name LIKE '%meter_read_5%'
 GROUP BY o.name, i.name, i.indid, i.used, sch.name, p.[Rows], i.OrigFillFactor, IOS.summary, ii.is_disabled
 	--,IOS.LEAF_ALLOCATION_COUNT, IOS.NONLEAF_ALLOCATION_COUNT
 	--, i.indid, o.id

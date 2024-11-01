@@ -1,4 +1,4 @@
-SELECT 
+SELECT @@SERVERNAME AS [ServerName],
        DB_NAME() AS [DBname],
        ISNULL(b.groupname, 'Log') AS 'File Group',
        Name as [Logical Name],

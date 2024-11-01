@@ -18,6 +18,36 @@
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
           <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
         </ConnectionNode>
+        <ConnectionNode Name="BCSADLNB73\SQL2222:BLUECRYSTAL\Gennadi.Gretchkosiy">
+          <Created>2024-09-12T10:19:54.936174+09:30</Created>
+          <Type>SQL</Type>
+          <Server>BCSADLNB73\SQL2222</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB>master</InitialDB>
+          <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>False</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="cql-prd.database.windows.net:Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au">
+          <Created>2024-10-29T13:46:39.1491612+10:30</Created>
+          <Type>SQL</Type>
+          <Server>cql-prd.database.windows.net</Server>
+          <UserName>Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</UserName>
+          <Authentication>SQL</Authentication>
+          <InitialDB>RETAIL</InitialDB>
+          <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>False</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
       </Items>
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
@@ -161,8 +191,8 @@
           <FullPath>History_last_backup.sql</FullPath>
         </FileNode>
         <FileNode Name="History_restore.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73\SQL2222:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73\SQL2222</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>History_restore.sql</FullPath>
         </FileNode>
@@ -191,9 +221,9 @@
           <FullPath>Indexes_missed.sql</FullPath>
         </FileNode>
         <FileNode Name="Indexes_structure.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:cql-prd.database.windows.net:False:Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>cql-prd.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnUserName>
           <FullPath>Indexes_structure.sql</FullPath>
         </FileNode>
         <FileNode Name="Indexes_unused.sql">
@@ -250,6 +280,12 @@
           <AssociatedConnUserName />
           <FullPath>MSDB_size.sql</FullPath>
         </FileNode>
+        <FileNode Name="Replication_list_of_objects.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73\SQL2222:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73\SQL2222</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Replication_list_of_objects.sql</FullPath>
+        </FileNode>
         <FileNode Name="Statistics_info.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
@@ -269,9 +305,9 @@
           <FullPath>Table_create_script.sql</FullPath>
         </FileNode>
         <FileNode Name="Tables_sizez_statistics.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:cql-prd.database.windows.net:False:Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>cql-prd.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnUserName>
           <FullPath>Tables_sizez_statistics.sql</FullPath>
         </FileNode>
         <FileNode Name="Traces_Default.sql">

@@ -37,6 +37,9 @@ WHERE
     t.NAME NOT LIKE 'dt%' AND
     i.OBJECT_ID > 255 AND   
     i.index_id <= 1
+
+	--AND OBJECT_NAME(i.OBJECT_ID) LIKE 'meter_read_%'
+
 GROUP BY 
     t.NAME, i.object_id, i.index_id, i.name, p.[Rows] , s.name
 ORDER BY 
