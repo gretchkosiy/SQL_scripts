@@ -1,7 +1,7 @@
 with fs
 as
 (
-    select database_id, type, size * 8 / 1024 size
+    select database_id, type, CAST(size AS BIGINT) * 8 / 1024 size
     from sys.master_files
 )
 select
@@ -13,34 +13,18 @@ select
 		WHEN is_read_only = 1 THEN 'READ ONLY'
 		ELSE ''
 	END [RO]	,
-    (select sum(size) from fs where type = 0 and fs.database_id = db.database_id) DataFileSizeMB,
+    (select sum(CAST(size AS BIGINT)) from fs where type = 0 and fs.database_id = db.database_id) DataFileSizeMB,
 	--CAST(CAST(FILEPROPERTY('MSDBdata', 'SpaceUsed') AS int)/128 AS varchar), 
-    (select sum(size) from fs where type = 1 and fs.database_id = db.database_id) LogFileSizeMB
-	, sd.version
-	, 
+    (select sum(CAST(size AS BIGINT)) from fs where type = 1 and fs.database_id = db.database_id) LogFileSizeMB, 
+	sd.version, 
 	compatibility_level AS [Compatibility], 
 	collation_name AS [Collation], 
 	page_verify_option_desc AS [Page Verify],
-	CASE is_auto_close_on
-	WHEN 1 THEN 'Y'
-	ELSE 'N'
-	END AS [auto_close],
-	CASE is_auto_shrink_on
-	WHEN 1 THEN 'Y'
-	ELSE 'N'
-	END AS [auto_shrink],
-	CASE is_db_chaining_on
-	WHEN 1 THEN 'Y'
-	ELSE 'N'
-	END as [db_chaining],
-	CASE is_auto_create_stats_on
-	WHEN 1 THEN 'Y'
-	ELSE 'N'
-	END AS [auto_create_stats],
-	CASE is_auto_update_stats_on
-	WHEN 1 THEN 'Y'
-	ELSE 'N'
-	END AS [auto_update_stats]
+	CASE is_auto_close_on WHEN 1 THEN 'Y' ELSE 'N' END AS [auto_close],
+	CASE is_auto_shrink_on WHEN 1 THEN 'Y' ELSE 'N' END AS [auto_shrink],
+	CASE is_db_chaining_on WHEN 1 THEN 'Y' ELSE 'N' END as [db_chaining],
+	CASE is_auto_create_stats_on WHEN 1 THEN 'Y' ELSE 'N' END AS [auto_create_stats],
+	CASE is_auto_update_stats_on WHEN 1 THEN 'Y' ELSE 'N' END AS [auto_update_stats]
 	,'use [' + Db.name + '];exec sp_changedbowner ''sa'''
 
 --select * 

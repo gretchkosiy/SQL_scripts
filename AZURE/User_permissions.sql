@@ -39,3 +39,6 @@ FROM
 WHERE
     pr.type_desc IN ('SQL_USER', 'WINDOWS_USER', 'WINDOWS_GROUP', 'EXTERNAL_USER', 'EXTERNAL_GROUP', 'APPLICATION_ROLE') -- Filter for users and groups
 	and dp.permission_name NOT IN ('CONNECT')
+
+-- my permissions
+-- SELECT * FROM fn_my_permissions(NULL, 'DATABASE');  

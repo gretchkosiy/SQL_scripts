@@ -56,8 +56,8 @@
           <FullPath>Error_log.sql</FullPath>
         </FileNode>
         <FileNode Name="User_permissions.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:cql-prd.database.windows.net:False:Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>cql-prd.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CQL-DEV.DATABASE.WINDOWS.NET:False:Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>CQL-DEV.DATABASE.WINDOWS.NET</AssociatedConnSrvName>
           <AssociatedConnUserName>Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnUserName>
           <FullPath>User_permissions.sql</FullPath>
         </FileNode>
