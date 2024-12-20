@@ -17,3 +17,16 @@ EXEC sp_MSforeachdb 'USE [?];
 	CLOSE files_cursor;  
 	DEALLOCATE files_cursor; 
 '
+
+
+
+
+
+EXEC sp_MSforeachdb 'USE [master];
+IF ''?'' not in (''tempdb'' ,''master'',''model'', ''msdb'')
+BEGIN 
+	DECLARE @partSQL VARCHAR(max)
+	SET @partSQL =''ALTER DATABASE [?] SET RECOVERY SIMPLE WITH NO_WAIT''
+	PRINT @partSQL
+	--EXEC @partSQL
+END'

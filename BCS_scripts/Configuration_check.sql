@@ -1,10 +1,42 @@
-  -- Last update 12/07/2024
-    
-  declare @strtSQL datetime
-   declare @currmem int
-   declare @smaxmem int
-   declare @osmaxmm int
-   declare @osavlmm int 
+  -- Last update 9/12/2024
+  
+  -- need to add - number of database swhere not sa owner
+  --   -- SSRS, SSIS, SSAS, FTS - sys.dm_server_services since 2016
+  --   - AZURE?
+  --   - virtual or phisical
+  -- different collations
+  -- AAG
+  -- Replication
+
+-- https://dba.stackexchange.com/questions/81352/physical-server-or-a-virtual-machine-sql-server
+
+Set nocount on 
+
+declare @OlaVer varchar(100)
+DECLARE	@DAC VARCHAR(50)
+DECLARE @MV INT = 0
+DECLARE @LV INT
+
+USE [msdb];
+
+IF EXISTS(select 1 from [msdb].sys.objects where name = 'DatabaseBackup')  
+BEGIN  
+	DECLARE @t TABLE (txt VARCHAR(2000) NULL)
+	INSERT INTO @t EXEC sp_helptext '[dbo].[DatabaseBackup]'; 
+	IF EXISTS(SELECT 1 FROM @t WHERE txt like '%//%BCS: Ver%' and  txt not like '%SET%')  
+		SELECT @OlaVer = SUBSTRING(txt, CHARINDEX('Ver',txt,1) + LEN('Ver') + 1,LEN('1.0 2019-02-05')+1)  
+		FROM @t WHERE txt like '%//%BCS: Ver%' and  txt not like '%SET%'
+	ELSE 
+		SELECT @OlaVer = 'N/A' 
+END 
+ELSE SELECT @OlaVer = 'BCS OLA Maintenace Plan is missing' 
+
+
+--declare @strtSQL datetime
+--declare @currmem int
+declare @smaxmem int
+declare @osmaxmm int
+declare @osavlmm int 
 
 declare @installationSQL datetime 
 
@@ -13,13 +45,6 @@ SELECT
 FROM sys.server_principals
 WHERE sid = 0x010100000000000512000000
 
-   -- SQL memory
-   SELECT 
-      @strtSQL = sqlserver_start_time,
-      @currmem = (committed_kb/1024)
-	  --,@smaxmem = (committed_target_kb/1024)           
-   FROM sys.dm_os_sys_info;
-   
    --OS memory
    --SELECT 
    --   --@osmaxmm = (total_physical_memory_kb/1024),
@@ -27,16 +52,11 @@ WHERE sid = 0x010100000000000512000000
    --FROM sys.dm_os_sys_memory;
 
 
-declare @Instant_file_initialization VARCHAR(MAX)
-SELECT  
-        @Instant_file_initialization = CASE WHEN instant_file_initialization_enabled = 'Y' THEN 'Yes'ELSE 'No' END
-FROM    sys.dm_server_services
-WHERE   servicename LIKE 'SQL Server (%'
+--declare @Instant_file_initialization VARCHAR(MAX) = ''
+--declare @Lock_pages_in_memory VARCHAR(MAX) = ''
+--declare @Virtual VARCHAR(MAX) = ''
 
 
-declare @Lock_pages_in_memory VARCHAR(MAX)
-SELECT @Lock_pages_in_memory = CASE WHEN sql_memory_model = 2 THEN 'Yes' ELSE 'No' END
-FROM sys.dm_os_sys_info;
 
 ----
 
@@ -50,13 +70,10 @@ ELSE
 
 
 
-DECLARE	@DAC VARCHAR(50)
-DECLARE @MV INT
-DECLARE @LV INT
 
-SELECT @MV = SUBSTRING(CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR(20)),1,CHARINDEX('.',CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR(20)))-1)
+
+SELECT @MV = cast(SUBSTRING(CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR(20)),1,CHARINDEX('.',CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR(20)))-1) as int)
 SELECT @LV = SUBSTRING(CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR(20)),CHARINDEX('.',CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR(20)))+1,CHARINDEX('.',CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR(20)),CHARINDEX('.',CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR(20)))+1) - CHARINDEX('.',CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR(20))) -1)
-
 
 if exists (select 1 from tempdb..sysobjects where name = '##Globals')
 	DROP TABLE ##Globals
@@ -68,21 +85,86 @@ CREATE TABLE ##Globals
   auth_scheme VARCHAR(20) NULL,
   client_net_address VARCHAR(20) NULL,
   local_net_address VARCHAR(20) NULL,
-  local_tcp_port VARCHAR(20) NULL
+  local_tcp_port VARCHAR(20) NULL,
+
+  Instant_file_initialization VARCHAR(20) NULL,
+  Lock_pages_in_memory VARCHAR(20) NULL,
+  Virtual VARCHAR(20) NULL,
+  strtSQL datetime null,
+  currmem int null
 )
 
+--print @MV
 
 IF @MV >=10
-	EXEC(' INSERT INTO ##Globals (net_transport, protocol_type, auth_scheme, client_net_address, local_net_address, local_tcp_port) 
-	VALUES(
-	CAST(CONNECTIONPROPERTY(''net_transport'') AS VARCHAR(20)) , 
-	CAST(CONNECTIONPROPERTY(''protocol_type'') AS VARCHAR(20)) , 
-	CAST(CONNECTIONPROPERTY(''auth_scheme'') AS VARCHAR(20)) ,
-	CAST(CONNECTIONPROPERTY(''client_net_address'') AS VARCHAR(20)) ,
-	CAST(CONNECTIONPROPERTY(''local_net_address'') AS VARCHAR(20)) ,
-	CAST(CONNECTIONPROPERTY(''local_tcp_port'') AS VARCHAR(20))  )')
+	If @MV >= 13
+		BEGIN 
+		EXEC(' INSERT INTO ##Globals (net_transport, protocol_type, auth_scheme, client_net_address, local_net_address, local_tcp_port,Instant_file_initialization,Lock_pages_in_memory,Virtual,strtSQL,currmem) 
+		VALUES(
+		CAST(CONNECTIONPROPERTY(''net_transport'') AS VARCHAR(20)) , 
+		CAST(CONNECTIONPROPERTY(''protocol_type'') AS VARCHAR(20)) , 
+		CAST(CONNECTIONPROPERTY(''auth_scheme'') AS VARCHAR(20)) ,
+		CAST(CONNECTIONPROPERTY(''client_net_address'') AS VARCHAR(20)) ,
+		CAST(CONNECTIONPROPERTY(''local_net_address'') AS VARCHAR(20)) ,
+		CAST(CONNECTIONPROPERTY(''local_tcp_port'') AS VARCHAR(20))  
+
+		, (SELECT  CASE WHEN instant_file_initialization_enabled = ''Y'' THEN ''Yes'' ELSE ''No'' END FROM sys.dm_server_services WHERE servicename LIKE ''SQL Server (%'')  
+		, (SELECT CASE WHEN sql_memory_model = 2 THEN ''Yes'' ELSE ''No'' END FROM sys.dm_os_sys_info)
+		, (SELECT CASE 
+				WHEN dosi.virtual_machine_type = 1
+				THEN ''Virtual'' 
+				ELSE ''Physical''
+				END
+			FROM sys.dm_os_sys_info dosi)
+		, (SELECT sqlserver_start_time FROM sys.dm_os_sys_info)
+		, (SELECT (committed_kb/1024) FROM sys.dm_os_sys_info)
+
+		--,''''
+		--,'''','''',NULL,NULL
+
+		)')
+	
+
+
+			--SELECT  
+			--		@Instant_file_initialization = CASE WHEN instant_file_initialization_enabled = 'Y' THEN 'Yes'ELSE 'No' END
+			--FROM    sys.dm_server_services
+			--WHERE   servicename LIKE 'SQL Server (%'
+
+			--SELECT @Lock_pages_in_memory = CASE WHEN sql_memory_model = 2 THEN 'Yes' ELSE 'No' END
+			--FROM sys.dm_os_sys_info;
+
+			--SELECT 
+			--	--SERVERPROPERTY('computernamephysicalnetbios') AS ServerName
+			--	--,dosi.virtual_machine_type_desc
+			--	--,
+			--	@Virtual = CASE 
+			--	WHEN dosi.virtual_machine_type = 1
+			--	THEN 'Virtual' 
+			--	ELSE 'Physical'
+			--	END
+			--FROM sys.dm_os_sys_info dosi
+
+		   ---- SQL memory
+		   --SELECT 
+		   --   @strtSQL = sqlserver_start_time,
+		   --   @currmem = (committed_kb/1024)
+			  ----,@smaxmem = (committed_target_kb/1024)           
+		   --FROM sys.dm_os_sys_info;
+		END 	
+	ELSE
+		EXEC(' INSERT INTO ##Globals (net_transport, protocol_type, auth_scheme, client_net_address, local_net_address, local_tcp_port,Instant_file_initialization,Lock_pages_in_memory,Virtual,strtSQL,currmem) 
+		VALUES(
+		CAST(CONNECTIONPROPERTY(''net_transport'') AS VARCHAR(20)) , 
+		CAST(CONNECTIONPROPERTY(''protocol_type'') AS VARCHAR(20)) , 
+		CAST(CONNECTIONPROPERTY(''auth_scheme'') AS VARCHAR(20)) ,
+		CAST(CONNECTIONPROPERTY(''client_net_address'') AS VARCHAR(20)) ,
+		CAST(CONNECTIONPROPERTY(''local_net_address'') AS VARCHAR(20)) ,
+		CAST(CONNECTIONPROPERTY(''local_tcp_port'') AS VARCHAR(20))  
+		,'''','''','''',(select create_Date from MASTER.sys.databases where name = ''tempdb''),0
+		)')
 ELSE 
-	EXEC(' INSERT INTO ##Globals (net_transport, protocol_type, auth_scheme, client_net_address, local_net_address, local_tcp_port)	VALUES('''','''','''','''','''','''')')
+	EXEC(' INSERT INTO ##Globals (net_transport, protocol_type, auth_scheme, client_net_address, local_net_address, local_tcp_port)	VALUES('''','''','''','''','''','''','''','''','''',(select create_Date from MASTER.sys.databases where name = ''tempdb''),0)')
 
 SELECT 
 	@DAC = 
@@ -465,15 +547,16 @@ USE msdb
      
 SELECT
 
+	   CAST((SELECT Virtual  from ##Globals) AS VARCHAR(20))  as [P/V],
 --SERVERPROPERTY('ServerName') as ServerName,
        SERVERPROPERTY('MachineName') AS HostName,
        ISNULL(SERVERPROPERTY('InstanceName'),'defailt') as InstanceName,
 	   @installationSQL AS [Installation date],
-	   @strtSQL AS [Start time],
+	   CAST((SELECT strtSQL   from ##Globals) AS DATETIME) AS [Start time],
 
 	   CASE WHEN LEN (@StartUp) <> 0 THEN  '="' + @StartUp + '"' ELSE '' END AS StartUpFlags,
-	   @Instant_file_initialization AS [InstantFileInitialisation],
-	   @Lock_pages_in_memory AS [LockPagesInMemory],
+	   CAST((SELECT Instant_file_initialization   from ##Globals) AS VARCHAR(20)) AS [InstantFileInitialisation],
+	   CAST((SELECT Lock_pages_in_memory    from ##Globals) AS VARCHAR(20)) AS [LockPagesInMemory],
 	   @DAC AS DAC,
 
 		CAST((SELECT net_transport from ##Globals) AS VARCHAR(20)) AS net_transport,
@@ -505,7 +588,7 @@ AS ListNodes,
 @memoryOSgb as OSmemoryGB,
 @MIN as [MinRAM (mb)],
 @MAX as [MaxRAM (mb)],
-@currmem AS [SQL used Mb],
+CAST((SELECT currmem   from ##Globals) AS int) AS [SQL used Mb],
 @osavlmm AS [OS free Mb],
 @CPUs  AS CPUs,
 @GrowthFileMaster AS GrowthFile_Master,
@@ -537,17 +620,17 @@ CAST(CAST(FILEPROPERTY('MSDBdata', 'SpaceUsed') AS int)/128 AS varchar) as MSDB_
 @dirBACKUP AS DB_BackupLocation,
 @dirBIN AS BIN_Location,
 
-              [MailServer] = @mail,
+              [MailServer] = isnull(@mail,''),
 
 
-SERVERPROPERTY('ProductLevel') AS ProductLevel,
-SERVERPROPERTY('ProductUpdateLevel') AS ProductUpdateLevel,
-SERVERPROPERTY('ProductBuildType') AS ProductBuildType,
-SERVERPROPERTY('ProductUpdateReference') AS ProductUpdateReference,
+isnull(SERVERPROPERTY('ProductLevel'),'') AS ProductLevel,
+isnull(SERVERPROPERTY('ProductUpdateLevel'),'') AS ProductUpdateLevel,
+isnull(SERVERPROPERTY('ProductBuildType'),'') AS ProductBuildType,
+isnull(SERVERPROPERTY('ProductUpdateReference'),'') AS ProductUpdateReference,
 SERVERPROPERTY('ProductVersion') AS ProductVersion,
-SERVERPROPERTY('ProductMajorVersion') AS ProductMajorVersion,
-SERVERPROPERTY('ProductMinorVersion') AS ProductMinorVersion,
-SERVERPROPERTY('ProductBuild') AS ProductBuild,
+isnull(SERVERPROPERTY('ProductMajorVersion'),'') AS ProductMajorVersion,
+isnull(SERVERPROPERTY('ProductMinorVersion'),'') AS ProductMinorVersion,
+isnull(SERVERPROPERTY('ProductBuild'),'') AS ProductBuild,
 SERVERPROPERTY('Collation') AS ProductCollation,
 SERVERPROPERTY('Edition') AS Edition,
 @MPs as MaintenancePlansWith_no_SA,
@@ -561,4 +644,6 @@ CASE WHEN @valueMSX = 0x0 THEN 'MSX ready' ELSE '' END AS MultiServerJobs
 --,@OSPatchLevel AS PatchLevel
 ,@erronum NumberErrorLog_files
 , @DatabaseMailUserRole AS [MSDB_DatabaseMailUserRole]
+,@OlaVer AS [BCS installed Ola MP]
 GO
+
