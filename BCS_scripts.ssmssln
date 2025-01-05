@@ -13,17 +13,20 @@ Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "AZURE", "AZURE\AZURE.ssmssq
 EndProject
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "PowerShell", "PowerShell\PowerShell.ssmssqlproj", "{34D42ABA-B6B2-4328-8334-928A94152C2A}"
 EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "From_OneNote", "From_OneNote\From_OneNote.ssmssqlproj", "{9E2B669C-EF36-488A-B736-B2E7E1175B54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Default|Default = Default|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{867ACE24-CCEE-45CD-943A-450235454F3F}.Default|Default.ActiveCfg = Default
 		{931642EF-F98A-4AA1-A855-987D26F0DCF0}.Default|Default.ActiveCfg = Default
 		{4CB65E1A-9282-4E3F-A040-246B844FC9F0}.Default|Default.ActiveCfg = Default
 		{B521FCBD-E1CC-4354-A989-CAEA386D8367}.Default|Default.ActiveCfg = Default
 		{8E040905-FFCF-426A-9869-981C2D232B5C}.Default|Default.ActiveCfg = Default
 		{34D42ABA-B6B2-4328-8334-928A94152C2A}.Default|Default.ActiveCfg = Default
+		{6EB0A84C-BD23-4EC0-A73C-3D32B5E3572D}.Default|Default.ActiveCfg = Default
+		{9E2B669C-EF36-488A-B736-B2E7E1175B54}.Default|Default.ActiveCfg = Default
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

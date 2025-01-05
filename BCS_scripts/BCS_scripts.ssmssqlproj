@@ -94,11 +94,23 @@
           <AssociatedConnUserName />
           <FullPath>Compression_table_index.sql</FullPath>
         </FileNode>
+        <FileNode Name="Configuration_AZURE_DB_IM.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Configuration_AZURE_DB_IM.sql</FullPath>
+        </FileNode>
         <FileNode Name="Configuration_check.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>Configuration_check.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Configuration_check_AZURE_IM_NOT_DB.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Configuration_check_AZURE_IM_NOT_DB.sql</FullPath>
         </FileNode>
         <FileNode Name="Database_grow_events.sql">
           <AssociatedConnectionMoniker />

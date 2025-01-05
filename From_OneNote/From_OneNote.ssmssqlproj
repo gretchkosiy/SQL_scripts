@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="From_OneNote">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items />
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="AAG_Make job AAG aware.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>AAG_Make job AAG aware.sql</FullPath>
+        </FileNode>
+        <FileNode Name="GENERAL_Changing_Endpoint_owners.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>GENERAL_Changing_Endpoint_owners.sql</FullPath>
+        </FileNode>
+        <FileNode Name="GENERAL_DB owner - Change to 'sa'.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>GENERAL_DB owner - Change to 'sa'.sql</FullPath>
+        </FileNode>
+        <FileNode Name="GENERAL_EMR TRACEFLAG 1448.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>GENERAL_EMR TRACEFLAG 1448.sql</FullPath>
+        </FileNode>
+        <FileNode Name="GENERAL_Kills sessions in sleeping state.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>GENERAL_Kills sessions in sleeping state.sql</FullPath>
+        </FileNode>
+        <FileNode Name="GENERAL_Long_Slow Running queries.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>GENERAL_Long_Slow Running queries.sql</FullPath>
+        </FileNode>
+        <FileNode Name="GENERAL_Read default trace.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>GENERAL_Read default trace.sql</FullPath>
+        </FileNode>
+        <FileNode Name="GENERAL_Replication latency check .sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>GENERAL_Replication latency check .sql</FullPath>
+        </FileNode>
+        <FileNode Name="GENERAL_Scheduled jobs and run times .sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>GENERAL_Scheduled jobs and run times .sql</FullPath>
+        </FileNode>
+        <FileNode Name="GENERAL_select spid text.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>GENERAL_select spid text.sql</FullPath>
+        </FileNode>
+        <FileNode Name="GENERAL_SQL_Server_Default trace.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>GENERAL_SQL_Server_Default trace.sql</FullPath>
+        </FileNode>
+        <FileNode Name="GENERAL_top five queries by average CPU.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>GENERAL_top five queries by average CPU.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

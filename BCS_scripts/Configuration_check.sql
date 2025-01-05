@@ -7,10 +7,31 @@
   -- different collations
   -- AAG
   -- Replication
+  -- most recent backup - type and locations
+  -- BTSQLPROD02.reddog.microsoft.com - SQL Service account WRONG!!!!
+ 
 
 -- https://dba.stackexchange.com/questions/81352/physical-server-or-a-virtual-machine-sql-server
 
 Set nocount on 
+
+DECLARE @isAZURE VARCHAR(MAX) = ''
+
+SELECT 
+	@isAZURE = CASE 
+					WHEN SERVERPROPERTY('Edition') =  'SQL Azure' THEN 
+					CASE 
+						WHEN SERVERPROPERTY('EngineEdition') = 5 THEN 'SQL Azure - SQL Database'
+						WHEN SERVERPROPERTY('EngineEdition') = 6 THEN 'SQL Azure - Microsoft Azure Synapse Analytics'
+						WHEN SERVERPROPERTY('EngineEdition') = 7 THEN 'SQL Azure - Stretch Database'
+						WHEN SERVERPROPERTY('EngineEdition') = 8 THEN 'SQL Azure - Managed Instance'
+						WHEN SERVERPROPERTY('EngineEdition') = 9 THEN 'SQL Azure - Don''t know'
+						WHEN SERVERPROPERTY('EngineEdition') = 10 THEN 'SQL Azure - Don''t know'
+						WHEN SERVERPROPERTY('EngineEdition') = 11 THEN 'SQL Azure - Azure Synapse serverless SQL pool'
+						WHEN SERVERPROPERTY('EngineEdition') = 12 THEN 'SQL Azure - Don''t know'
+				END END
+
+
 
 declare @OlaVer varchar(100)
 DECLARE	@DAC VARCHAR(50)
@@ -27,7 +48,7 @@ BEGIN
 		SELECT @OlaVer = SUBSTRING(txt, CHARINDEX('Ver',txt,1) + LEN('Ver') + 1,LEN('1.0 2019-02-05')+1)  
 		FROM @t WHERE txt like '%//%BCS: Ver%' and  txt not like '%SET%'
 	ELSE 
-		SELECT @OlaVer = 'N/A' 
+		SELECT @OlaVer = 'Installed, but BCS verssion N/A' 
 END 
 ELSE SELECT @OlaVer = 'BCS OLA Maintenace Plan is missing' 
 
@@ -61,15 +82,8 @@ WHERE sid = 0x010100000000000512000000
 ----
 
 
-DECLARE	@DatabaseMailUserRole VARCHAR(50)
-
-IF EXISTS (SELECT 1 FROM msdb.[INFORMATION_SCHEMA].[SCHEMATA] where schema_name = 'DatabaseMailUserRole' and schema_owner <> 'DatabaseMailUserRole') 
-	SET @DatabaseMailUserRole = 'Not'
-ELSE 
-	SET @DatabaseMailUserRole = 'Ok'
-
-
-
+DECLARE	@DatabaseMailUserRole VARCHAR(50) 
+SET @DatabaseMailUserRole = (SELECT CASE WHEN COUNT(*) = 0 THEN 'Not' ELSE 'Ok' END FROM msdb.[INFORMATION_SCHEMA].[SCHEMATA] where schema_name = 'DatabaseMailUserRole' and schema_owner <> 'DatabaseMailUserRole')
 
 
 SELECT @MV = cast(SUBSTRING(CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR(20)),1,CHARINDEX('.',CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR(20)))-1) as int)
@@ -111,7 +125,7 @@ IF @MV >=10
 		, (SELECT  CASE WHEN instant_file_initialization_enabled = ''Y'' THEN ''Yes'' ELSE ''No'' END FROM sys.dm_server_services WHERE servicename LIKE ''SQL Server (%'')  
 		, (SELECT CASE WHEN sql_memory_model = 2 THEN ''Yes'' ELSE ''No'' END FROM sys.dm_os_sys_info)
 		, (SELECT CASE 
-				WHEN dosi.virtual_machine_type = 1
+				WHEN dosi.virtual_machine_type = 2
 				THEN ''Virtual'' 
 				ELSE ''Physical''
 				END
@@ -442,7 +456,7 @@ If Exists (select 1 from master.sys.sysobjects where name = 'dm_server_services'
               @ServiceAccountStatus = status_desc, 
               @ServiceAccountStartup = startup_type_desc 
        FROM    master.sys.dm_server_services AS DSS
-       where servicename like 'SQL Server%' and servicename not like 'SQL Server Agent%'
+       where servicename like 'SQL Server%' and servicename not like 'SQL Server Agent%'  and servicename not like 'SQL Server Launchpad%'
 
 
 Declare @AgentAccount varchar(max)
