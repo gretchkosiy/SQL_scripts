@@ -37,40 +37,107 @@
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
-        <FileNode Name="Blocking.sql">
+        <FileNode Name="AZURE_Blocking.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>Blocking.sql</FullPath>
+          <FullPath>AZURE_Blocking.sql</FullPath>
         </FileNode>
-        <FileNode Name="DatabaseSize.sql">
+        <FileNode Name="AZURE_DatabaseSize.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:cql-prd.database.windows.net:False:Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>cql-prd.database.windows.net</AssociatedConnSrvName>
           <AssociatedConnUserName>Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnUserName>
-          <FullPath>DatabaseSize.sql</FullPath>
+          <FullPath>AZURE_DatabaseSize.sql</FullPath>
         </FileNode>
-        <FileNode Name="Error_log.sql">
+        <FileNode Name="AZURE_Error_log.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:cql-prd.database.windows.net:False:Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>cql-prd.database.windows.net</AssociatedConnSrvName>
           <AssociatedConnUserName>Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnUserName>
-          <FullPath>Error_log.sql</FullPath>
+          <FullPath>AZURE_Error_log.sql</FullPath>
         </FileNode>
-        <FileNode Name="User_permissions.sql">
+        <FileNode Name="AZURE_User_permissions.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CQL-DEV.DATABASE.WINDOWS.NET:False:Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>CQL-DEV.DATABASE.WINDOWS.NET</AssociatedConnSrvName>
           <AssociatedConnUserName>Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnUserName>
-          <FullPath>User_permissions.sql</FullPath>
+          <FullPath>AZURE_User_permissions.sql</FullPath>
         </FileNode>
-        <FileNode Name="Users.sql">
+        <FileNode Name="AZURE_Users.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CQL-DEV.DATABASE.WINDOWS.NET:False:Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>CQL-DEV.DATABASE.WINDOWS.NET</AssociatedConnSrvName>
           <AssociatedConnUserName>Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnUserName>
-          <FullPath>Users.sql</FullPath>
+          <FullPath>AZURE_Users.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Buffer Pool Memory Used vs Wasted.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Buffer Pool Memory Used vs Wasted.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Disk Latency.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Disk Latency.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Index Fragmentation.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Index Fragmentation.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Memory Distribution.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Memory Distribution.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Missing Indexes from Plan Cache.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Missing Indexes from Plan Cache.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Plan Cache Memory for Single vs Multiple use plans.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Plan Cache Memory for Single vs Multiple use plans.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Redundant Single-Use Plans from Plan Cache.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Redundant Single-Use Plans from Plan Cache.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Resource Utilisation.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Resource Utilisation.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Settings and Events.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Settings and Events.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Waits.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Waits.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>
     <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
-      <Items />
+      <Items>
+        <FileNode Name="Work Instruction - Azure SQL Database health check.docx">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Work Instruction - Azure SQL Database health check.docx</FullPath>
+        </FileNode>
+      </Items>
     </LogicalFolder>
   </Items>
 </SqlWorkbenchSqlProject>

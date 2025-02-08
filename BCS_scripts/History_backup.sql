@@ -33,9 +33,9 @@ FROM msdb.dbo.backupmediafamily
 INNER JOIN msdb.dbo.backupset ON msdb.dbo.backupmediafamily.media_set_id = msdb.dbo.backupset.media_set_id 
 WHERE msdb.dbo.backupset.database_name not in ('master','msdb','model', 'tempdb')
 -- comment these lines if all available history required
-	and (CONVERT(datetime, msdb.dbo.backupset.backup_start_date, 102) >= GETDATE() - @history_days) 
-	and msdb.dbo.backupset.database_name = @database_name
-	and msdb..backupset.type = @backupset_type
+	--and (CONVERT(datetime, msdb.dbo.backupset.backup_start_date, 102) >= GETDATE() - @history_days) 
+	--and msdb.dbo.backupset.database_name = @database_name
+	--and msdb..backupset.type = @backupset_type
 ORDER BY 
 msdb.dbo.backupset.database_name, 
 msdb.dbo.backupset.backup_start_date desc

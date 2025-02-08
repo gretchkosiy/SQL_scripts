@@ -22,6 +22,12 @@
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
+        <FileNode Name="Host_restart.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Host_restart.sql</FullPath>
+        </FileNode>
         <FileNode Name="PowerShell_Features_installed_on_host.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />

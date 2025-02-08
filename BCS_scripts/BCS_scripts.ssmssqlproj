@@ -185,8 +185,8 @@
           <FullPath>Execution_plans_counts.sql</FullPath>
         </FileNode>
         <FileNode Name="History_backup.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>BCSADLNB73</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BCSADLNB73\SQL2222:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>BCSADLNB73\SQL2222</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>History_backup.sql</FullPath>
         </FileNode>

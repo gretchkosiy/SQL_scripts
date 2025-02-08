@@ -1,8 +1,11 @@
-  -- Last update 2/01/2025
+-- 3 mins   -- Last update 2/01/2025
   -- AZURE enabled - IM and DB
 
 
+  -- Query store is not enabled!
+
   -- MSDB used space is not working for MI!!!! Need to add
+
 
   -- need to add - number of database sWHERE not sa owner
   --   -- SSRS, SSIS, SSAS, FTS - sys.dm_server_services since 2016
@@ -29,24 +32,31 @@ DECLARE @LV INT = SUBSTRING(CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR(20)
 
 DECLARE @isAZURE VARCHAR(MAX) =	CASE	WHEN SERVERPROPERTY('Edition') =  'SQL Azure' THEN 
 										CASE 
+											WHEN SERVERPROPERTY('EngineEdition') = 4 THEN 'SQL on linux'
+											--WHEN SERVERPROPERTY('EngineEdition') = 5 THEN 'SQL Azure - SQL Database'
 											WHEN SERVERPROPERTY('EngineEdition') = 5 THEN 'SQL Azure - SQL Database'
-											WHEN SERVERPROPERTY('EngineEdition') = 6 THEN 'SQL Azure - Microsoft Azure Synapse Analytics'
+											WHEN SERVERPROPERTY('EngineEdition') = 6 THEN 'SQL Azure - Microsoft Azure Synapse Analytics'  -- ? Dedicated SQL pool (formerly SQL DW) 
 											WHEN SERVERPROPERTY('EngineEdition') = 7 THEN 'SQL Azure - Stretch Database'
 											WHEN SERVERPROPERTY('EngineEdition') = 8 THEN 'SQL Azure - Managed Instance'
-											WHEN SERVERPROPERTY('EngineEdition') = 9 THEN 'SQL Azure - Don''t know'
+											WHEN SERVERPROPERTY('EngineEdition') = 9 THEN 'SQL Edge on linux'
 											WHEN SERVERPROPERTY('EngineEdition') = 10 THEN 'SQL Azure - Don''t know'
 											WHEN SERVERPROPERTY('EngineEdition') = 11 THEN 'SQL Azure - Azure Synapse serverless SQL pool'
 											WHEN SERVERPROPERTY('EngineEdition') = 12 THEN 'SQL Azure - Don''t know'
 											ELSE ''
-								END	ELSE ''	END
+								END	ELSE 
+									CASE 
+											WHEN SERVERPROPERTY('EngineEdition') = 4 THEN 'SQL on Docker'
+											WHEN SERVERPROPERTY('EngineEdition') = 9 THEN 'SQL Edge on linux'
+											ELSE ''	
+									END END
 
---SELECT @isAZURE,@MV,@LV
+SELECT @isAZURE,@MV,@LV
 
 DECLARE @GrowthFileMsdb VARCHAR(MAX) = ''
 DECLARE @GrowthFileModel VARCHAR(MAX) =  ''
 DECLARE	@DatabaseMailUserRole VARCHAR(MAX) = ''
 DECLARE @SystemDatabasesMODEL VARCHAR(MAX) =''
-DECLARE @SystemDatabasesMSDB VARCHAR(MAX) =''l
+DECLARE @SystemDatabasesMSDB VARCHAR(MAX) =''
 DECLARE @mail VARCHAR(MAX) = ''
 DECLARE @Jobs INT = 0
 DECLARE @MPs INT = 0
@@ -63,6 +73,7 @@ DECLARE @dirDATA NVARCHAR(MAX) ='',
         @dirBACKUP NVARCHAR(MAX) ='',
         @dirBIN NVARCHAR(MAX) =''
 DECLARE @OSName VARCHAR(MAX) = ''
+DECLARE @Platform VARCHAR(MAX) = ''
 DECLARE @DataFileSizeMB INT = 0
 DECLARE @errorlog_file VARCHAR(MAX) = ''
 DECLARE @OlaVer VARCHAR(MAX) = '' 
@@ -95,6 +106,7 @@ BEGIN
 			  ,dirLOG VARCHAR(MAX) NULL
 			  ,dirBACKUP VARCHAR(MAX) NULL
 			  ,dirBIN VARCHAR(MAX) NULL
+			  ,[Platform] VARCHAR(MAX) NULL
 			  ,OSName VARCHAR(MAX) NULL
 			  ,DataFileSizeMB INT NULL
 			  ,errorlog_file VARCHAR(MAX) NULL
@@ -112,7 +124,7 @@ BEGIN
 
 	EXEC('DECLARE @allnodes VARCHAR(MAX); SET @allnodes = ''''; SELECT @allnodes = @allnodes + NodeName + '',''   FROM sys.dm_os_cluster_nodes; SET @allnodes = CASE WHEN @allnodes is NULL OR LTRIM(RTRIM(@allnodes)) = '''' THEN '''' ELSE SUBSTRING(@allnodes,1,len(@allnodes)-1) END;
 	      UPDATE ##GlobalsNoAzureDb 
-		  SET allnodes = allnodes ')
+		  SET allnodes = @allnodes ')
 
 	EXEC('DECLARE @dirArg3 NVARCHAR(MAX), @dirArg4 NVARCHAR(MAX), @dirArg5 NVARCHAR(MAX), @dirArg6 NVARCHAR(MAX), @StartUp NVARCHAR(MAX)
 		  exec master.dbo.xp_instance_regread N''HKEY_LOCAL_MACHINE'',N''Software\Microsoft\MSSQLServer\MSSQLServer\Parameters'',N''SQLArg3'', @dirArg3 output, ''no_output''
@@ -195,14 +207,26 @@ BEGIN
 		UPDATE ##GlobalsNoAzureDb SET dirBACKUP = @dirBACKUP
 		UPDATE ##GlobalsNoAzureDb SET dirBIN = @dirBIN')
 
+
+
+-- old
+	--EXEC('DECLARE @OSName VARCHAR(100);
+	--		EXEC   master.dbo.xp_regread
+	--			@rootkey      = N''HKEY_LOCAL_MACHINE'',
+	--			@key          = N''SOFTWARE\Microsoft\Windows NT\CurrentVersion'',
+	--			@value_name   = N''ProductName'',
+	--			@value        = @OSName output;
+	--	 UPDATE ##GlobalsNoAzureDb 
+	--	 SET OSName = @OSName')
+
+
+-- need to test on 2008
+-- host_architecture - ??? for 14 and 15 versions
 	EXEC('DECLARE @OSName VARCHAR(100);
-			EXEC   master.dbo.xp_regread
-				@rootkey      = N''HKEY_LOCAL_MACHINE'',
-				@key          = N''SOFTWARE\Microsoft\Windows NT\CurrentVersion'',
-				@value_name   = N''ProductName'',
-				@value        = @OSName output;
-		 UPDATE ##GlobalsNoAzureDb 
-		 SET OSName = @OSName')
+	      DECLARE @Platform VARCHAR(100);
+		  SELECT @Platform = host_platform,  @OSName = host_distribution + '' ('' + host_release + '') '' + host_architecture FROM sys.dm_os_host_info; 
+		  UPDATE ##GlobalsNoAzureDb SET OSName = @OSName
+		  UPDATE ##GlobalsNoAzureDb SET [Platform] = @Platform')
 
 	EXEC('UPDATE ##GlobalsNoAzureDb  SET DataFileSizeMB = (select size/128 from msdb.sys.master_files where database_id = 4 and file_id = 1)')
 
@@ -260,6 +284,7 @@ BEGIN
 	SET @dirLOG = (SELECT dirLOG FROM ##GlobalsNoAzureDb)	
 	SET @dirBACKUP = (SELECT dirBACKUP FROM ##GlobalsNoAzureDb)	
 	SET @dirBIN = (SELECT dirBIN FROM ##GlobalsNoAzureDb)	
+	SET @Platform = (SELECT [Platform] FROM ##GlobalsNoAzureDb)	
 	SET @OSName = (SELECT OSName FROM ##GlobalsNoAzureDb)	
 	SET @DataFileSizeMB = (SELECT DataFileSizeMB FROM ##GlobalsNoAzureDb)	
 	SET @errorlog_file = (SELECT errorlog_file FROM ##GlobalsNoAzureDb)	
@@ -472,10 +497,11 @@ SELECT
 		CASE WHEN @valueMSX = 0x0 THEN 'MSX ready' ELSE '' END AS MultiServerJobs,
 ----,@OSEdition AS OsEdition
 ----,@OSVersion AS OsVersion
+		ISNULL(@Platform,'') AS [Platform],
 		ISNULL(@OSName,'') AS OsName,
 ----,@OSPatchLevel AS PatchLevel
 		@erronum NumberErrorLog_files,
 		ISNULL(@DatabaseMailUserRole,'Not') AS [MSDB_DatabaseMailUserRole],
 		@OlaVer AS [BCS installed Ola MP]
 
-
+--, @@VERSION AS [InstanceVersion]
