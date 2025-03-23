@@ -71,6 +71,8 @@ GO
 IF EXISTS (SELECT * FROM sys.sysobjects WHERE id = OBJECT_ID('[dbo].[sp_JOBs_structure]'))
 	DROP PROCEDURE [dbo].[sp_JOBs_structure] 
 GO
+
+-- START
 CREATE PROCEDURE [dbo].[sp_JOBs_structure] 
 	 @JobName varchar(max) = ''
 	,@Structure varchar(max) = 'all'
