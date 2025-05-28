@@ -19,20 +19,22 @@ cpu_time?columns in?sys.dm_exec_requests. Run the following query to get the dat
 
 */
  
-SELECTreq.session_id 
-    , req.total_elapsed_time ASduration_ms 
+ 
+SELECT req.session_id 
+	, DB_NAME(req.database_id) as DatabaseName
+	, req.total_elapsed_time ASduration_ms 
     , req.cpu_time AScpu_time_ms 
     , req.total_elapsed_time - req.cpu_time ASwait_time 
     , req.logical_reads 
     , SUBSTRING(REPLACE(REPLACE(SUBSTRING(ST.text, (req.statement_start_offset/2) + 1,  
-       ((CASEstatement_end_offset 
-           WHEN-1THENDATALENGTH(ST.text)   
-           ELSEreq.statement_end_offset 
+       ((CASE statement_end_offset 
+           WHEN-1 THEN DATALENGTH(ST.text)   
+           ELSE req.statement_end_offset 
          END- req.statement_start_offset)/2) + 1) , CHAR(10), ' '), CHAR(13), ' '),  
-      1, 512)  ASstatement_text   
-FROMsys.dm_exec_requests ASreq 
-    CROSSAPPLYsys.dm_exec_sql_text(req.sql_handle) ASST 
-ORDERBYtotal_elapsed_time DESC; 
+      1, 8000)  ASstatement_text   
+FROM sys.dm_exec_requests AS req 
+    CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST 
+ORDER BY total_elapsed_time DESC;  
  
 
 --For past executions of the query, check?last_elapsed_time?and?last_worker_time?columns in?sys.dm_exec_query_stats. Run the following query to get the data: 

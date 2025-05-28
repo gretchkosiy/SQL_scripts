@@ -1,4 +1,4 @@
--- 3 mins   -- Last update 2/01/2025
+-- 3 mins   -- Last update 20/05/2025
   -- AZURE enabled - IM and DB
 
 
@@ -209,24 +209,34 @@ BEGIN
 
 
 
--- old
-	--EXEC('DECLARE @OSName VARCHAR(100);
-	--		EXEC   master.dbo.xp_regread
-	--			@rootkey      = N''HKEY_LOCAL_MACHINE'',
-	--			@key          = N''SOFTWARE\Microsoft\Windows NT\CurrentVersion'',
-	--			@value_name   = N''ProductName'',
-	--			@value        = @OSName output;
-	--	 UPDATE ##GlobalsNoAzureDb 
-	--	 SET OSName = @OSName')
+
 
 
 -- need to test on 2008
 -- host_architecture - ??? for 14 and 15 versions
+-- NOT WORKING FOR 13
+
+if @MV > 14 
 	EXEC('DECLARE @OSName VARCHAR(100);
 	      DECLARE @Platform VARCHAR(100);
 		  SELECT @Platform = host_platform,  @OSName = host_distribution + '' ('' + host_release + '') '' + host_architecture FROM sys.dm_os_host_info; 
 		  UPDATE ##GlobalsNoAzureDb SET OSName = @OSName
 		  UPDATE ##GlobalsNoAzureDb SET [Platform] = @Platform')
+ELSE IF @MV > 13 
+	EXEC('DECLARE @OSName VARCHAR(100);
+	      DECLARE @Platform VARCHAR(100);
+		  SELECT @Platform = host_platform,  @OSName = host_distribution + '' ('' + host_release + '') '' FROM sys.dm_os_host_info; 
+		  UPDATE ##GlobalsNoAzureDb SET OSName = @OSName
+		  UPDATE ##GlobalsNoAzureDb SET [Platform] = @Platform')
+ELSE -- 13 and less
+	EXEC('DECLARE @OSName VARCHAR(100);
+			EXEC   master.dbo.xp_regread
+				@rootkey      = N''HKEY_LOCAL_MACHINE'',
+				@key          = N''SOFTWARE\Microsoft\Windows NT\CurrentVersion'',
+				@value_name   = N''ProductName'',
+				@value        = @OSName output;
+		 UPDATE ##GlobalsNoAzureDb SET OSName = @OSName
+		 UPDATE ##GlobalsNoAzureDb SET [Platform] = ''Windows''')
 
 	EXEC('UPDATE ##GlobalsNoAzureDb  SET DataFileSizeMB = (select size/128 from msdb.sys.master_files where database_id = 4 and file_id = 1)')
 
@@ -495,8 +505,8 @@ SELECT
 		ISNULL(@ErrorLogLocation,'') AS ErrorLogLocation,
 		@errorlog_file AS AgentErrorLogLocation,
 		CASE WHEN @valueMSX = 0x0 THEN 'MSX ready' ELSE '' END AS MultiServerJobs,
-----,@OSEdition AS OsEdition
-----,@OSVersion AS OsVersion
+--@OSEdition AS OsEdition
+--,@OSVersion AS OsVersion,
 		ISNULL(@Platform,'') AS [Platform],
 		ISNULL(@OSName,'') AS OsName,
 ----,@OSPatchLevel AS PatchLevel

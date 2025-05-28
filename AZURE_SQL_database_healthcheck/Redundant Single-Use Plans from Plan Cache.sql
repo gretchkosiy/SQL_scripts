@@ -3,7 +3,7 @@ Run on the database target of your investigation
 DO NOT run on master.
 
 Returns redundant single-use plans for nearly identical queries:
-â€¢	They have nearly identical text; and
+•	They have nearly identical text; and
 a.	They are not parameterised at all (values are supplied as literals); or
 b.	They are parameterised with inconsistently defined data types, i.e., at least one parameter has different length defined as compared to a previous execution.
 

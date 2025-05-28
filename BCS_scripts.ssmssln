@@ -15,18 +15,24 @@ Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "PowerShell", "PowerShell\Po
 EndProject
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "From_OneNote", "From_OneNote\From_OneNote.ssmssqlproj", "{9E2B669C-EF36-488A-B736-B2E7E1175B54}"
 EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "AZURE_SQL_database_healthcheck", "AZURE_SQL_database_healthcheck\AZURE_SQL_database_healthcheck.ssmssqlproj", "{8E7D2DDA-7426-4FA8-9028-77F9FE32DB52}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "AZURE_learning", "AZURE_learning\AZURE_learning.ssmssqlproj", "{1BE8FEE0-6203-4593-9127-243E54E0F2F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Default|Default = Default|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D63A5010-4213-47CA-9CA9-A88A3449A3C7}.Default|Default.ActiveCfg = Default
+		{E7F81B8B-A868-4646-93D4-F91E8BE68762}.Default|Default.ActiveCfg = Default
 		{931642EF-F98A-4AA1-A855-987D26F0DCF0}.Default|Default.ActiveCfg = Default
 		{4CB65E1A-9282-4E3F-A040-246B844FC9F0}.Default|Default.ActiveCfg = Default
 		{B521FCBD-E1CC-4354-A989-CAEA386D8367}.Default|Default.ActiveCfg = Default
 		{8E040905-FFCF-426A-9869-981C2D232B5C}.Default|Default.ActiveCfg = Default
 		{34D42ABA-B6B2-4328-8334-928A94152C2A}.Default|Default.ActiveCfg = Default
 		{9E2B669C-EF36-488A-B736-B2E7E1175B54}.Default|Default.ActiveCfg = Default
+		{8E7D2DDA-7426-4FA8-9028-77F9FE32DB52}.Default|Default.ActiveCfg = Default
+		{1BE8FEE0-6203-4593-9127-243E54E0F2F0}.Default|Default.ActiveCfg = Default
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

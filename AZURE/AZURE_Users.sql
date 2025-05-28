@@ -139,7 +139,7 @@ ORDER BY DP1.name;
 
 --- roles permissions
 
-https://dba.stackexchange.com/questions/36618/list-all-permissions-for-a-given-role
+--https://dba.stackexchange.com/questions/36618/list-all-permissions-for-a-given-role
 
  WITH    perms_cte as
 (
@@ -202,4 +202,4 @@ ORDER  BY rp.name,
 
 
 
-https://blobeater.blog/2018/10/22/azure-sql-db-failed-to-update-database-because-the-database-is-read-only/
+--https://blobeater.blog/2018/10/22/azure-sql-db-failed-to-update-database-because-the-database-is-read-only/

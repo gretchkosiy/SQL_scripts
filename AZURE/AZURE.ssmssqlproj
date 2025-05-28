@@ -33,15 +33,36 @@
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
           <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
         </ConnectionNode>
+        <ConnectionNode Name="freesqlservergena.database.windows.net:gennadi.gretchkosiy@bluecrystal.com.au">
+          <Created>2025-05-12T16:26:23.8814142+09:30</Created>
+          <Type>SQL</Type>
+          <Server>freesqlservergena.database.windows.net</Server>
+          <UserName>gennadi.gretchkosiy@bluecrystal.com.au</UserName>
+          <Authentication>SQL</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
       </Items>
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="AZURE_Blocking.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
           <FullPath>AZURE_Blocking.sql</FullPath>
+        </FileNode>
+        <FileNode Name="AZURE_database_scripts.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>AZURE_database_scripts.sql</FullPath>
         </FileNode>
         <FileNode Name="AZURE_DatabaseSize.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:cql-prd.database.windows.net:False:Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnectionMoniker>
@@ -56,88 +77,21 @@
           <FullPath>AZURE_Error_log.sql</FullPath>
         </FileNode>
         <FileNode Name="AZURE_User_permissions.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CQL-DEV.DATABASE.WINDOWS.NET:False:Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>CQL-DEV.DATABASE.WINDOWS.NET</AssociatedConnSrvName>
-          <AssociatedConnUserName>Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnUserName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
           <FullPath>AZURE_User_permissions.sql</FullPath>
         </FileNode>
         <FileNode Name="AZURE_Users.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:CQL-DEV.DATABASE.WINDOWS.NET:False:Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>CQL-DEV.DATABASE.WINDOWS.NET</AssociatedConnSrvName>
-          <AssociatedConnUserName>Admin.BCS.Gennadi.Gretchkosiy@cleancoqld.com.au</AssociatedConnUserName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
           <FullPath>AZURE_Users.sql</FullPath>
-        </FileNode>
-        <FileNode Name="Buffer Pool Memory Used vs Wasted.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>Buffer Pool Memory Used vs Wasted.sql</FullPath>
-        </FileNode>
-        <FileNode Name="Disk Latency.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>Disk Latency.sql</FullPath>
-        </FileNode>
-        <FileNode Name="Index Fragmentation.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>Index Fragmentation.sql</FullPath>
-        </FileNode>
-        <FileNode Name="Memory Distribution.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>Memory Distribution.sql</FullPath>
-        </FileNode>
-        <FileNode Name="Missing Indexes from Plan Cache.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>Missing Indexes from Plan Cache.sql</FullPath>
-        </FileNode>
-        <FileNode Name="Plan Cache Memory for Single vs Multiple use plans.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>Plan Cache Memory for Single vs Multiple use plans.sql</FullPath>
-        </FileNode>
-        <FileNode Name="Redundant Single-Use Plans from Plan Cache.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>Redundant Single-Use Plans from Plan Cache.sql</FullPath>
-        </FileNode>
-        <FileNode Name="Resource Utilisation.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>Resource Utilisation.sql</FullPath>
-        </FileNode>
-        <FileNode Name="Settings and Events.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>Settings and Events.sql</FullPath>
-        </FileNode>
-        <FileNode Name="Waits.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>Waits.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>
     <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
-      <Items>
-        <FileNode Name="Work Instruction - Azure SQL Database health check.docx">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>Work Instruction - Azure SQL Database health check.docx</FullPath>
-        </FileNode>
-      </Items>
+      <Items />
     </LogicalFolder>
   </Items>
 </SqlWorkbenchSqlProject>

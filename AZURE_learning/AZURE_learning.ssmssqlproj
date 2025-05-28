@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="AZURE_learning">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="freesqlservergena.database.windows.net:gennadi.gretchkosiy@bluecrystal.com.au">
+          <Created>2025-05-15T12:50:31.489723+09:30</Created>
+          <Type>SQL</Type>
+          <Server>freesqlservergena.database.windows.net</Server>
+          <UserName>gennadi.gretchkosiy@bluecrystal.com.au</UserName>
+          <Authentication>SQL</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="69.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>69.sql</FullPath>
+        </FileNode>
+        <FileNode Name="70 -PurView.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>70 -PurView.sql</FullPath>
+        </FileNode>
+        <FileNode Name="72_74_Ledger.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>72_74_Ledger.sql</FullPath>
+        </FileNode>
+        <FileNode Name="75_Row_level_security.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>75_Row_level_security.sql</FullPath>
+        </FileNode>
+        <FileNode Name="76_threat_portection.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>76_threat_portection.sql</FullPath>
+        </FileNode>
+        <FileNode Name="78.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>78.sql</FullPath>
+        </FileNode>
+        <FileNode Name="92.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>92.sql</FullPath>
+        </FileNode>
+        <FileNode Name="93.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>93.sql</FullPath>
+        </FileNode>
+        <FileNode Name="key_vault.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>key_vault.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

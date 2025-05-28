@@ -13,8 +13,8 @@ SELECT
 	NULL as ObjectName
 FROM
     sys.database_role_members drm
-    JOIN sys.database_principals pr ON drm.member_principal_id = pr.principal_id
-    JOIN sys.database_principals r ON drm.role_principal_id = r.principal_id
+    RIGHT JOIN sys.database_principals pr ON drm.member_principal_id = pr.principal_id
+    LEFT JOIN sys.database_principals r ON drm.role_principal_id = r.principal_id
     LEFT JOIN sys.database_permissions dp ON pr.principal_id = dp.grantee_principal_id
 WHERE
 	pr.type_desc IN ('SQL_USER', 'WINDOWS_USER', 'WINDOWS_GROUP', 'EXTERNAL_USER', 'EXTERNAL_GROUP', 'APPLICATION_ROLE') -- Filter for users and groups

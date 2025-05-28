@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="AZURE_SQL_database_healthcheck">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="freesqlservergena.database.windows.net:gennadi.gretchkosiy@bluecrystal.com.au">
+          <Created>2025-05-12T20:31:04.6956922+09:30</Created>
+          <Type>SQL</Type>
+          <Server>freesqlservergena.database.windows.net</Server>
+          <UserName>gennadi.gretchkosiy@bluecrystal.com.au</UserName>
+          <Authentication>SQL</Authentication>
+          <InitialDB>master</InitialDB>
+          <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="Buffer Pool Memory Used vs Wasted.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>Buffer Pool Memory Used vs Wasted.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Disk Latency.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>Disk Latency.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Index Fragmentation.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>Index Fragmentation.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Memory Distribution.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>Memory Distribution.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Missing Indexes from Plan Cache.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>Missing Indexes from Plan Cache.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Plan Cache Memory for Single vs Multiple use plans.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>Plan Cache Memory for Single vs Multiple use plans.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Redundant Single-Use Plans from Plan Cache.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>Redundant Single-Use Plans from Plan Cache.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Resource Utilisation.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>Resource Utilisation.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Settings and Events.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>Settings and Events.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Waits.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
+          <FullPath>Waits.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items>
+        <FileNode Name="Work Instruction - Azure SQL Database health check.docx">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Work Instruction - Azure SQL Database health check.docx</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>
