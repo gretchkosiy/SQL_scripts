@@ -39,48 +39,54 @@ WHERE
 /*
 
 -- The same but splitted by files and available space
+-- Can be run in TXT output - for SHINKFILE part
+
+IF OBJECT_ID(N'tempdb.dbo.##temp',N'U') IS NOT NULL
+       DROP TABLE ##temp;
 
 EXEC sp_MSforeachdb 'USE [?];
 
 IF OBJECT_ID(N''tempdb.dbo.##temp'',N''U'') IS NULL
 CREATE TABLE ##temp (
+	   [InstanceName] VARCHAR(500),
        [DBname] VARCHAR(100),
        [File Group] VARCHAR(100),
        [Logical Name] VARCHAR(100),
-       [Filename] VARCHAR(100),
+       [Filename] VARCHAR(8000),
        [Currently Allocated Space (MB)] VARCHAR(100),
        [Space Used (MB)] VARCHAR(100),
-       [Available Space (MB)] VARCHAR(100));
-  
+       [Available Space (MB)] VARCHAR(100),
+	   [Free %] DECIMAL(4,2),
+	   [Shrink] VARCHAR(1000));
 INSERT INTO ##temp
 SELECT 
+	   @@SERVERNAME AS [InstanceName],
        DB_NAME() AS [DBname],
-       ISNULL(b.groupname, ''Log'') AS ''File Group'',
+       ISNULL(b.groupname, ''Log'') AS [File Group],
        Name as [Logical Name],
        [Filename],
        CONVERT (Decimal(15,2),ROUND(a.Size/128.000,2)) [Currently Allocated Space (MB)],
        CONVERT (Decimal(15,2), ROUND(FILEPROPERTY(a.Name,''SpaceUsed'')/128.000,2)) AS [Space Used (MB)],
        CONVERT (Decimal(15,2),ROUND((a.Size-FILEPROPERTY(a.Name,''SpaceUsed''))/128.000,2)) AS [Available Space (MB)]
+	   ,(CONVERT (Decimal(15,2),ROUND((a.Size-FILEPROPERTY(a.Name,''SpaceUsed''))/128.000,2)))*100/CONVERT (Decimal(15,2),ROUND(a.Size/128.000,2)) [Free %]
+	   ,''USE ['' + DB_NAME() + ''];'' + CHAR(13)+CHAR(10) + ''GO'' + CHAR(13)+CHAR(10) + ''DBCC SHRINKFILE (N'''''' + Name + '''''', '' + CAST(CONVERT (Decimal(15,0), ROUND(FILEPROPERTY(a.Name,''SpaceUsed'')/128.000,0)+1) AS VARCHAR(20)) + '')''  AS [Shrink]
 FROM dbo.sysfiles a (NOLOCK)
 LEFT JOIN sysfilegroups b (NOLOCK) ON a.groupid = b.groupid;'
  
 IF OBJECT_ID(N'tempdb.dbo.##temp',N'U') IS NOT NULL
-SELECT * FROM ##temp 
+SELECT [InstanceName], DBname, [File Group], [Logical Name],[Filename],[Currently Allocated Space (MB)],[Space Used (MB)],[Available Space (MB)],[Free %]  FROM ##temp 
 WHERE 
        [DBname] not in ('master','model','msdb', 'tempdb')
-       --AND
-       --[DBname] in ('SP2013_Content_Intranet'
-       --                    ,'SP2013_Content_Intranet_SCAC'
-       --                    ,'SP2013_Content_Intranet_GatewayResource'
-       --                    ,'SP2013_Content_Intranet_ISD'
-       --                    ,'SP2013_Content_Intranet_Intelligence')
+       --AND [DBname] in ('SP2013_Content_Intranet')
 ORDER BY [DBname],[File Group], [Logical Name]
  
+-- this is for SHRINKFILE in SSMS Text mode 
+SELECT '--- Start ' + [DBname] + ' ' + [Logical Name] + CHAR(13)+CHAR(10) + [Shrink] + CHAR(13)+CHAR(10) + '--- End ' + [DBname] + ' ' + [Logical Name] + CHAR(13)+CHAR(10) + CHAR(13)+CHAR(10) AS DBCC_SHRINKFILE  FROM ##temp 
+--WHERE [DBname] in ('tempdb')
+ORDER BY [DBname],[File Group], [Logical Name]
  
 IF OBJECT_ID(N'tempdb.dbo.##temp',N'U') IS NOT NULL
        DROP TABLE ##temp;
-
-
 
 
 

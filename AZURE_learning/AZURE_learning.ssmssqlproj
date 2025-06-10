@@ -70,6 +70,12 @@
           <AssociatedConnUserName>gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnUserName>
           <FullPath>93.sql</FullPath>
         </FileNode>
+        <FileNode Name="96.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>96.sql</FullPath>
+        </FileNode>
         <FileNode Name="key_vault.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:freesqlservergena.database.windows.net:False:gennadi.gretchkosiy@bluecrystal.com.au</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>freesqlservergena.database.windows.net</AssociatedConnSrvName>

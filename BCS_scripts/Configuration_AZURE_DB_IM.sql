@@ -1,4 +1,4 @@
--- 3 mins   -- Last update 20/05/2025
+-- 3 mins   -- Last update 30/05/2025
   -- AZURE enabled - IM and DB
 
 
@@ -50,7 +50,7 @@ DECLARE @isAZURE VARCHAR(MAX) =	CASE	WHEN SERVERPROPERTY('Edition') =  'SQL Azur
 											ELSE ''	
 									END END
 
-SELECT @isAZURE,@MV,@LV
+SELECT @isAZURE,@MV,@LV,SERVERPROPERTY('Edition'),SERVERPROPERTY('EngineEdition')
 
 DECLARE @GrowthFileMsdb VARCHAR(MAX) = ''
 DECLARE @GrowthFileModel VARCHAR(MAX) =  ''
@@ -79,12 +79,23 @@ DECLARE @errorlog_file VARCHAR(MAX) = ''
 DECLARE @OlaVer VARCHAR(MAX) = '' 
 DECLARE @MSDB_used INT = 0 
 
+/*
+
+	IF EXISTS (SELECT 1 FROM tempdb.dbo.sysobjects WHERE name = '##GlobalsNoAzureDb') DROP TABLE ##GlobalsNoAzureDb
+	IF EXISTS (SELECT 1 FROM tempdb.dbo.sysobjects WHERE name = '##Globals') DROP TABLE ##Globals
+
+*/
+
 IF (@isAZURE != 'SQL Azure - SQL Database') 
 BEGIN 
 	--PRINT 'Not for SQL Azure - SQL Database'
 
-	IF EXISTS (SELECT 1 FROM tempdb.dbo.sysobjects WHERE name = '##GlobalsNoAzureDb') DROP TABLE ##GlobalsNoAzureDb
+	--IF EXISTS (SELECT 1 FROM tempdb.dbo.sysobjects WHERE name = '##GlobalsNoAzureDb') DROP TABLE ##GlobalsNoAzureDb
+	--IF EXISTS (SELECT 1 FROM tempdb.dbo.sysobjects WHERE name = '##Globals') DROP TABLE ##Globals
 
+	--SELECT * FROM tempdb.dbo.sysobjects   WHERE name like '##%'
+
+	IF EXISTS (SELECT 1 FROM tempdb.dbo.sysobjects WHERE name = '##GlobalsNoAzureDb') DROP TABLE ##GlobalsNoAzureDb
 	CREATE TABLE ##GlobalsNoAzureDb
 			 (GrowthFileMsdb VARCHAR(MAX) NULL
 			  ,GrowthFileModel VARCHAR(MAX) NULL
@@ -116,11 +127,11 @@ BEGIN
 	
 	EXEC('INSERT INTO ##GlobalsNoAzureDb (GrowthFileMsdb) SELECT TOP 1 CASE is_percent_growth WHEN 1 THEN CAST(growth AS VARCHAR(MAX)) + '' percent(s)'' ELSE CAST(growth/128 AS VARCHAR(MAX)) + '' MB(s)'' END FROM msdb.sys.database_files WHERE type = 0')
 	EXEC('UPDATE ##GlobalsNoAzureDb SET GrowthFileModel = (SELECT TOP 1 CASE is_percent_growth WHEN 1 THEN CAST(growth AS VARCHAR(MAX)) + '' percent(s)'' ELSE CAST(growth/128 AS VARCHAR(MAX)) + '' MB(s)'' END FROM model.sys.database_files WHERE type = 0)')
-	EXEC('UPDATE ##GlobalsNoAzureDb  SET DatabaseMailUserRole = (SELECT CASE WHEN COUNT(*) = 0 THEN ''Not'' ELSE ''Ok'' END FROM msdb.[INFORMATION_SCHEMA].[SCHEMATA] where schema_name = ''DatabaseMailUserRole'' and schema_owner <> ''DatabaseMailUserRole'')')
-	EXEC('UPDATE ##GlobalsNoAzureDb SET SystemDatabasesMODEL = (SELECT  ISNULL(physical_name,'''') FROM model.sys.master_files WHERE database_id = 3 and file_id = 1)')
-	EXEC('UPDATE ##GlobalsNoAzureDb SET SystemDatabasesMSDB = (SELECT ISNULL(physical_name,'''') FROM msdb.sys.master_files WHERE database_id = 4 and file_id = 1)')
+	EXEC('UPDATE ##GlobalsNoAzureDb  SET DatabaseMailUserRole = (SELECT TOP 1 CASE WHEN COUNT(*) = 0 THEN ''Not'' ELSE ''Ok'' END FROM msdb.[INFORMATION_SCHEMA].[SCHEMATA] where schema_name = ''DatabaseMailUserRole'' and schema_owner <> ''DatabaseMailUserRole'')')
+	EXEC('UPDATE ##GlobalsNoAzureDb SET SystemDatabasesMODEL = (SELECT TOP 1  ISNULL(physical_name,'''') FROM model.sys.master_files WHERE database_id = 3 and file_id = 1)')
+	EXEC('UPDATE ##GlobalsNoAzureDb SET SystemDatabasesMSDB = (SELECT TOP 1 ISNULL(physical_name,'''') FROM msdb.sys.master_files WHERE database_id = 4 and file_id = 1)')
 	EXEC('UPDATE ##GlobalsNoAzureDb  SET mail  = (SELECT TOP 1 servername FROM msdb.dbo.sysmail_server)')
-	EXEC('UPDATE ##GlobalsNoAzureDb SET Jobs = (SELECT Count(*) FROM  msdb.dbo.sysjobs s  LEFT JOIN master.sys.syslogins l on s.owner_sid = l.sid WHERE l.name NOT IN (''sa'') OR l.name IS NULL)')
+	EXEC('UPDATE ##GlobalsNoAzureDb SET Jobs = (SELECT TOP 1 Count(*) FROM  msdb.dbo.sysjobs s  LEFT JOIN master.sys.syslogins l on s.owner_sid = l.sid WHERE l.name NOT IN (''sa'') OR l.name IS NULL)')
 
 	EXEC('DECLARE @allnodes VARCHAR(MAX); SET @allnodes = ''''; SELECT @allnodes = @allnodes + NodeName + '',''   FROM sys.dm_os_cluster_nodes; SET @allnodes = CASE WHEN @allnodes is NULL OR LTRIM(RTRIM(@allnodes)) = '''' THEN '''' ELSE SUBSTRING(@allnodes,1,len(@allnodes)-1) END;
 	      UPDATE ##GlobalsNoAzureDb 
@@ -262,7 +273,7 @@ ELSE -- 13 and less
 				IF EXISTS(SELECT 1 FROM [msdb].sys.objects WHERE name = ''DatabaseBackup'')  
 				BEGIN  
 					DECLARE @t TABLE (txt VARCHAR(2000) NULL)
-					INSERT INTO @t EXEC sp_helptext ''MSDB.[dbo].[DatabaseBackup]''; 
+					INSERT INTO @t EXEC sp_helptext ''msdb.[dbo].[DatabaseBackup]''; 
 					IF EXISTS(SELECT 1 FROM @t WHERE txt like ''%//%BCS: Ver%'' and  txt not like ''%SET%'')  
 						SELECT @OlaVer = SUBSTRING(txt, CHARINDEX(''Ver'',txt,1) + LEN(''Ver'') + 1,LEN(''1.0 2019-02-05'')+1)  
 						FROM @t WHERE txt like ''%//%BCS: Ver%'' and  txt not like ''%SET%''
@@ -311,7 +322,6 @@ ELSE SET @OlaVer = 'AZURE BD Maintenace Plan is not required'
 DECLARE	@DAC VARCHAR(MAX) = (SELECT CASE  WHEN value_in_use = 1 THEN 'Enabled' ELSE 'Disabled' END FROM sys.configurations WHERE name = 'remote admin connections' )
 
 IF EXISTS (SELECT 1 FROM tempdb.dbo.sysobjects WHERE name = '##Globals') DROP TABLE ##Globals
-
 CREATE TABLE ##Globals
 		 (net_transport VARCHAR(20) NULL,
 		  protocol_type VARCHAR(20) NULL,
@@ -429,9 +439,10 @@ DECLARE @key VARCHAR(MAX) = 'SOFTWARE\Microsoft\Microsoft SQL Server\' + @Instan
 
 -------------------------
 
+ IF (@isAZURE = '') SET  @isAZURE = 'Physical'
 
 SELECT
-		CAST((SELECT CASE WHEN Virtual<>'' THEN Virtual ELSE @isAZURE END FROM ##Globals) AS VARCHAR(MAX))  AS [P/V],
+		CAST((SELECT CASE WHEN Virtual<>'' THEN Virtual ELSE ISNULL(@isAZURE,'Physical') END FROM ##Globals) AS VARCHAR(MAX))  AS [P/V],
 	--SERVERPROPERTY('ServerName') AS ServerName,
 		ISNULL(SERVERPROPERTY('MachineName'),'') AS HostName,
 		ISNULL(SERVERPROPERTY('InstanceName'),'defailt') AS InstanceName,
@@ -515,3 +526,7 @@ SELECT
 		@OlaVer AS [BCS installed Ola MP]
 
 --, @@VERSION AS [InstanceVersion]
+
+
+	--IF EXISTS (SELECT 1 FROM tempdb.dbo.sysobjects WHERE name = '##GlobalsNoAzureDb') EXEC('DROP TABLE ##GlobalsNoAzureDb')
+	--IF EXISTS (SELECT 1 FROM tempdb.dbo.sysobjects WHERE name = '##Globals') EXEC('DROP TABLE ##Globals')

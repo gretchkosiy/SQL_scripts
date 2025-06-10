@@ -1,3 +1,5 @@
+-- probbaly outdated
+
   -- Last update 9/12/2024
   
   -- need to add - number of database swhere not sa owner
